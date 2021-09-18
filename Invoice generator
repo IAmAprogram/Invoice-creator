@@ -1,0 +1,127 @@
+
+import java.io.*;
+class Game
+{
+  String np;
+  float p1;
+  int q;
+  float qp;
+static float t;
+Game(String a, float b, int c, float d)
+{
+  np=a;
+  p1=b;
+  q=c;
+  qp=d;
+}
+void displayData() 
+
+{
+
+System.out.println("Name of product :" +np) ;
+System.out.println("Price of 1 unit :"+p1);
+System.out.println("Quantity :"+q);
+System.out.println("Price of"+q+"units:"+qp);
+System.out.println("-------------------------------") ;
+t=t+qp;
+}
+static void total()
+{
+  System.out.println("Grand Total           "+t);
+}
+
+}
+
+// Compiler version JDK 11.0.2
+
+
+class Invoice 
+
+{
+
+public static void main (String args [] ) throws IOException
+
+{
+
+BufferedReader br =  new BufferedReader (new InputStreamReader (System.in));
+
+
+System.out.println ("Enter Shop name");
+
+String sobn = br.readLine();
+
+System.out.println ("Enter Seller name");
+
+String sn = br.readLine();
+
+System.out.println ("Enter Seller mob no.");
+
+long smn = Long.parseLong (br.readLine ());
+ 
+System.out.println("Enter buyer name");
+
+String bn = br.readLine();
+
+System.out.println("Enter Buyer mob no.");
+
+long bmn = Long.parseLong ( br.readLine());
+
+System.out.println("Enter no. of Products");
+
+int n = Integer.parseInt (br.readLine());
+
+Game arr[] = new Game [n];
+
+
+for( int i=0; i<n; i++)
+
+{
+System.out.println ("Enter name of "+(i+1)+" product");
+
+String np = br.readLine ( ); 
+
+System.out.println ("Price of 1 unit");
+
+float p1= Float.parseFloat (br.readLine());
+
+System.out.println ("Quantity");
+
+int q = Integer.parseInt (br.readLine ( ) ); 
+
+float qp = p1*q;
+
+arr[i] = new Game(np, p1, q, qp);
+
+}
+
+System.out.println("            "+sobn+"          ");
+
+System.out.println("___________________");
+
+System.out.print(" Seller name:"+sn+"\t");
+
+System.out.println("\tMob no. :"+smn) ;
+
+System.out.print("Buyer name :"+bn) ;
+
+System.out.println("\tMob no. :"+bmn) ;
+
+System.out.println("____________________") ;
+
+System.out.println("Number of products :"+n) ;
+
+System.out.println("---------------------------------") ;
+
+for(int i = 0; i<arr.length; i++) 
+
+{
+
+   arr[i].displayData();
+
+}
+
+
+Game.total();
+}
+}
+    
